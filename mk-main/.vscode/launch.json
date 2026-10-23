@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"Run MK (shop + admin)","type":"node","request":"launch","program":"${workspaceFolder}/start.js","console":"integratedTerminal","skipFiles":["<node_internals>/**"]}]}

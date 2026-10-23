@@ -1,0 +1,112 @@
+MK PHOTO GUIDE
+==============
+Put your own photos in these folders. Anything missing automatically falls back to the built-in drawing,
+so you can add them a few at a time. Use photos you own or have a licence for (your own shoot, a supplier's
+press kit, or stock like Unsplash/Pexels where the licence allows commercial use). Do not copy photos from other brands' sites.
+
+PRODUCT PHOTOS  ->  shop/public/img/p/
+  * Format: transparent PNG cut-out of the product on its own, about 1000 x 1250 px, product centred, a little space around it.
+  * Main photo:            pNN.png        (NN = the number below, e.g. p01.png)
+  * One photo per colour:  pNN-S.png      (S = colour number as shown on the page, starting at 1, e.g. p01-3.png = 3rd shade)
+    If a colour photo is missing, the main photo is used.
+  * Sizes (ml): only ONE photo is needed. The site scales it up/down when someone picks 30 ml / 50 ml / 100 ml.
+  * Makeup (lips, eyes, face): the model try-on stays; your product photo appears as a small thumbnail in the corner.
+
+MODEL PHOTOS  ->  shop/public/img/m/
+  * m1.jpg = home page hero, m2.jpg = About section, m3.jpg = Shade Finder. 4:5 portrait JPG, about 1200 x 1500 px.
+  * Show a range of skin tones across them (light, medium, deep).
+  * m4.jpg = Бидний түүх (Our Story) portrait — Unsplash photo 1531746020798-e6953c6e8e04 (real
+    photography, Unsplash licence). Tried FIRST; CDN URL is the fallback, m2.jpg the last resort.
+  * m5.jpg = "Шинэ" ad card 1 (glossy-lips beauty portrait) — Unsplash 1529626455594-4ff0802cfb7e.
+  * m6.jpg = "Шинэ" ad card 2 (glowing skin portrait) — Unsplash 1519699047748-de8e457a634e.
+  * m7.jpg = "Шинэ" ad card 3 (makeup application close-up) — Unsplash 1515688594390-b649af70d282.
+
+PRODUCT NUMBERS
+
+  p01  [Lips]  Хилэн уруулын тинт
+  p02  [Lips]  Шилэн гялбаат уруулын блэск
+  p03  [Lips]  Сатин уруулын будаг
+  p04  [Lips]  Пептидтэй уруулын эмчилгээ
+  p05  [Lips]  Өнгөт уруулын бальзам
+  p06  [Lips]  Тэжээлт уруулын тос
+  p07  [Lips]  Чихрийн уруулын скраб
+  p08  [Lips]  Мат шингэн уруулын будаг
+  p09  [Lips]  Нарийвчилсан уруулын харандаа
+  p10  [Lips]  Шөнийн уруулын маск
+  p11  [Eyes]  Аметист нүдний сүүдрийн палитр
+  p12  [Eyes]  Эзэлхүүнтэй сормуусны будаг
+  p13  [Eyes]  Бэхэн шингэн айлайнер
+  p14  [Eyes]  Хөмсөг хэлбэржүүлэх харандаа
+  p15  [Eyes]  Тунгалаг хөмсгийн гель
+  p16  [Eyes]  Сэргээх нүдний тос
+  p17  [Eyes]  Кремэн нүдний сүүдрийн стик
+  p18  [Eyes]  Сормуус ургуулах серум
+  p19  [Eyes]  Гэрэлтүүлэгч нүдний консилер
+  p20  [Eyes]  Гидрогель нүдний наалт
+  p21  [Face]  Дэлбээн хацрын бальзам
+  p22  [Face]  Арьсны өнгөт тональ крем
+  p23  [Face]  Зөөлөн фокустай консилер
+  p24  [Face]  Сувдан хайлайтер
+  p25  [Face]  Наранд шарагдсан бронзер
+  p26  [Face]  Торгон тогтоогч нунтаг
+  p27  [Face]  Толбо бүдгэрүүлэх праймер
+  p28  [Face]  Контурын стик
+  p29  [Face]  Зөөлөн шингэн хацрын будаг
+  p30  [Face]  Шингэн гэрэлтүүлэгч
+  p31  [Face]  Кремэн хацрын будгийн стик
+  p32  [Face]  Өнгөт чийгшүүлэгч
+  p33  [Face]  Шахмал нунтаг
+  p34  [Face]  Будалт тогтоогч спрей
+  p35  [Skincare]  Үүлэн гель цэвэрлэгч
+  p36  [Skincare]  С витаминтай серум
+  p37  [Skincare]  Өдөр тутмын SPF 50 хамгаалалт
+  p38  [Skincare]  Тайвшруулах нүүрний маск
+  p39  [Skincare]  Сарнайн усан спрей
+  p40  [Skincare]  Хамгаалалтын чийгшүүлэгч
+  p41  [Skincare]  Тэжээлт нүүрний тос
+  p42  [Skincare]  Цэвэршүүлэх шаврын маск
+  p43  [Skincare]  Ретинолтой шөнийн тос
+  p44  [Skincare]  Чийгшүүлэх тоник
+  p45  [Skincare]  Гялбаа эссенс
+  p46  [Skincare]  Эрдэсийн SPF тинт
+  p47  [Skincare]  Мицелляр цэвэрлэгч ус
+  p48  [Skincare]  Зөөлөн ховхлогч маск
+  p49  [Body]  Хилэн биеийн лосьон
+  p50  [Body]  Тэжээлт биеийн тос
+  p51  [Body]  Онцлох гарын тос
+  p52  [Body]  Гөлгөржүүлэх биеийн скраб
+  p53  [Fragrance]  Парфюм ус N°1
+  p54  [Fragrance]  Парфюм ус N°2
+  p55  [Fragrance]  Хатуу үнэртэн
+  p56  [Fragrance]  Үс ба биеийн спрей
+  p57  [Nails]  Нил ягаан манан хумсны будаг
+  p58  [Nails]  Балетын ягаан хумсны будаг
+  p59  [Nails]  Гялгар тогтоогч бүрхүүл
+  p60  [Nails]  Хумсны арьсны тос
+  p61  [Nails]  Хумс бэхжүүлэгч
+  p62  [Tools]  Онцлох сойзны иж бүрдэл
+  p63  [Tools]  Нефрит нүүрний роллер
+  p64  [Tools]  Гуа ша чулуу
+  p65  [Tools]  Холих хөвөн
+  p66  [Tools]  Тональ кремний сойз
+  p67  [Tools]  Нүдний сүүдрийн хос сойз
+  p68  [Tools]  Сормуус мушгигч
+  p69  [Tools]  Авсаархан толь
+  p70  [Tools]  Аяллын гоо сайхны сав
+
+LOCAL CROPS  ->  shop/public/img/p/  (JPG)
+  * Cropped from free-licence Pexels flat-lay photos (Pexels 3018845 / 2113855, Pexels licence,
+    no attribution required). These are tried automatically before the CDN fallback photo.
+    If you add a proper cut-out pNN.png with the same number, THAT becomes the main photo.
+  * p65.jpg = Холих хөвөн (blending sponge, cropped)
+  * p66.jpg = Тональ кремний сойз (foundation brush, cropped)
+  * p67.jpg = Нүдний сүүдрийн хос сойз (eyeshadow brush duo, cropped)
+  * p69.jpg = Авсаархан толь (compact mirror, cropped)
+
+SET PHOTOS  ->  shop/public/img/sets/
+  * One real photo per "Арчилгааны иж бүрдэл" card, 900x675 JPG (tried first; CDN fallback next,
+    icon band shown only if both fail). Cropped/gradient-matched to the lavender-pink brand look.
+  * lip-ritual.jpg      = Уруулын зан үйл (pink cosmetics flat-lay) — Unsplash 1583209814683-c023dd293cc6
+  * glow-ritual.jpg     = Гэрэлтэх зан үйл (serum dropper in hand) — Pexels 3762879 (Pexels licence)
+  * everyday-face.jpg   = Өдөр тутмын нүүр (compacts & palettes flat-lay) — Pexels 2113855, cropped
+    locally from the original to keep other-brand marks out of frame.

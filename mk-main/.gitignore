@@ -1,0 +1,4 @@
+node_modules/
+.env
+shop/data/orders.json
+*.tmp

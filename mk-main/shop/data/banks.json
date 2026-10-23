@@ -1,0 +1,50 @@
+[
+ {
+  "id": "khan",
+  "name": "Хаан банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "golomt",
+  "name": "Голомт банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "tdb",
+  "name": "Худалдаа хөгжлийн банк (TDB)",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "xac",
+  "name": "Хас банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "state",
+  "name": "Төрийн банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "capitron",
+  "name": "Капитрон банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "bogd",
+  "name": "Богд банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ },
+ {
+  "id": "mbank",
+  "name": "М банк",
+  "account": "0000 0000 00",
+  "holder": "YOUR COMPANY NAME"
+ }
+]
