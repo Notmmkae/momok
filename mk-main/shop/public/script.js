@@ -1,4 +1,5 @@
 const CN={All:"Бүгд",Lips:"Уруул",Eyes:"Нүд",Face:"Нүүр",Skincare:"Арьс арчилгаа",Body:"Бие",Fragrance:"Үнэртэн",Nails:"Хумс",Tools:"Багаж",Saved:"Хадгалсан"},BN={Bestseller:"Эрэлттэй",New:"Шинэ",Signature:"Онцлох",Limited:"Хязгаарлагдмал"};
+const HAS_LOCAL_API = (()=>{const h=window.location.hostname;return h==="localhost"||h==="127.0.0.1"||h==="[::1]";})();
 const sh='<ellipse cx="50" cy="90" rx="26" ry="4" fill="#3b2a5422"/>';
 const A={
 lip:sh+'<rect x="38" y="20" width="24" height="16" rx="4" fill="#5a4283"/><rect x="36" y="34" width="28" height="52" rx="6" fill="#fff"/><rect x="36" y="50" width="28" height="22" fill="#c48aa8"/><path d="M42 20 q8-14 16 0z" fill="#a8567f"/>',
@@ -241,8 +242,8 @@ else if(at==="d")b=`<div class="adf"><label class="fs">Профайлын дүр
 else{const L=[...WL].map(n=>P.find(p=>p[1]===n)).filter(Boolean);b=L.length?`<div class="clg rvg">${L.map(x=>`<button class="clt" onclick="$('ac').classList.remove('on');openP(P[${P.indexOf(x)}])"><svg viewBox="0 0 100 100">${A[x[3]]}</svg>${x[1]}</button>`).join("")}</div>`:`<p class="fs">Бүтээгдэхүүний зүрхэн дээр дарж энд хадгалаарай.</p>`}
 $("ax").innerHTML=b}
 function acSave(){const u=usr(),U=rdU(),r=u&&U[u.email],n=$("dn").value.trim();if(!r)return;if(!n)return toast("Нэрээ оруулна уу");r.name=n;r.phone=$("dp").value.trim();r.addr=$("da").value.trim();u.name=n;wr("mk-users",U);wr("mk-user",u);toast("Мэдээлэл хадгалагдлаа");navAv();acR()}
-let INFO={demo:true,banks:[]},CO={m:"bank",bank:"",ref:""};
-fetch("/api/payment-info").then(r=>r.json()).then(j=>{INFO=j}).catch(()=>{});
+let INFO={demo:true,banks:[{"id":"khan","name":"Хаан банк","account":"0000 0000 00","holder":"YOUR COMPANY NAME"},{"id":"golomt","name":"Голомт банк","account":"0000 0000 00","holder":"YOUR COMPANY NAME"},{"id":"tdb","name":"Худалдаа хөгжлийн банк (TDB)","account":"0000 0000 00","holder":"YOUR COMPANY NAME"}]},CO={m:"bank",bank:"",ref:""};
+if(HAS_LOCAL_API){fetch("/api/payment-info").then(r=>r.json()).then(j=>{INFO=j}).catch(()=>{});}
 function luhn(n){let s=0,d=0;for(let i=n.length-1;i>=0;i--){let x=+n[i];if(d++%2){x*=2;if(x>9)x-=9}s+=x}return s%10===0}
 function brand(n){return/^4/.test(n)?"Visa":/^(5[1-5]|2[2-7])/.test(n)?"Mastercard":/^3[47]/.test(n)?"Amex":/^62/.test(n)?"UnionPay":"Карт"}
 function fmtN(e){e.value=e.value.replace(/\D/g,"").slice(0,19).replace(/(.{4})/g,"$1 ").trim()}
@@ -250,7 +251,7 @@ function fmtE(e){e.value=e.value.replace(/\D/g,"").slice(0,4).replace(/^(\d{2})(
 function fmtC(e){e.value=e.value.replace(/\D/g,"").slice(0,4)}
 function sl(i){return i===-1?"Төлбөр хүлээж байна":i===-2?"Цуцлагдсан":SL[i]}
 function pt(o){const p=o.pay;if(typeof p==="string")return"Төлбөр: "+esc(p)+" · Төлсөн";const st=o.paid?"Төлсөн":"Хүлээгдэж байна";return p.method==="bank"?"Төлбөр: Банкны шилжүүлэг ("+esc(p.bank)+") · "+st:"Төлбөр: "+esc(p.brand)+" •••• "+esc(p.last4)+" · "+st}
-async function syncO(){const u=usr();if(!u)return;const O=rdO(),L=(O[u.email]||[]).filter(o=>o.token&&o.status!=="delivered"&&o.status!=="cancelled");if(!L.length)return;
+async function syncO(){const u=usr();if(!u)return;if(!HAS_LOCAL_API)return;const O=rdO(),L=(O[u.email]||[]).filter(o=>o.token&&o.status!=="delivered"&&o.status!=="cancelled");if(!L.length)return;
 try{const r=await fetch("/api/orders/status",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({orders:L.map(o=>({id:o.id,token:o.token}))})});if(!r.ok)return;const S=await r.json();let ch=0;
 S.forEach(x=>{const o=L.find(y=>y.id===x.id);if(o&&(o.status!==x.status||o.paid!==x.paid)){o.status=x.status;o.paid=x.paid;ch=1}});if(ch){wr("mk-orders",O);if($("ac").classList.contains("on")&&at==="o")acR()}}catch(e){}}
 function checkout(){if(!usr())return;if(!BI.length)return toast("Таны сагс хоосон байна");CO={m:"bank",bank:"",ref:"MK-"+Math.floor(1e5+Math.random()*9e5)};$("dr").classList.remove("on");$("co").classList.add("on");coR()}
@@ -274,9 +275,14 @@ if(!/^\d{3,4}$/.test(c))return er("CVC код буруу байна.");
 pay={method:"card",brand:brand(n),last4:n.slice(-4)}}
 const t=BI.reduce((a,b)=>a+b.pr*b.q,0),dc=PC?+(t*.1).toFixed(2):0,body={id:CO.ref,email:u.email,name:nm,phone:ph,addr:ad,items:BI.map(b=>({...b})),dc,total:+(t-dc).toFixed(2),pay},btn=$("cpb");
 btn.disabled=true;let r=null;
-try{const x=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});if(x.ok)r=await x.json()}catch(e){}
+if(HAS_LOCAL_API){
+  try{const x=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});if(x.ok)r=await x.json()}catch(e){}
+} else {
+  const suffix=String(Math.floor(100000 + Math.random()*900000));
+  r={id:`MK-${suffix}`,token:(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()),status:pay.method==="bank"?"awaiting_payment":"processing",paid:pay.method==="card",trk:`MKT${Math.floor(100000000 + Math.random()*900000000)}`};
+}
 if(!r){btn.disabled=false;return er("Захиалгыг илгээж чадсангүй. Серверт холбогдож чадсангүй, дахин оролдоно уу.")}
-const o={id:r.id,t:Date.now(),items:body.items,total:body.total,dc,pay:r.status==="awaiting_payment"?{method:"bank",bank:(INFO.banks.find(b=>b.id===CO.bank)||{}).name||""}:pay,trk:r.trk,token:r.token,status:r.status,paid:r.paid},O=rdO();
+const o={id:r.id,t:Date.now(),items:body.items,total:body.total,dc,pay:pay.method==="bank"?{method:"bank",bank:(INFO.banks.find(b=>b.id===CO.bank)||{}).name||""}:pay,trk:r.trk,token:r.token,status:r.status,paid:r.paid},O=rdO();
 (O[u.email]=O[u.email]||[]).push(o);if(!wr("mk-orders",O))toast("Захиалгыг хадгалж чадсангүй");
 const U=rdU(),rec=U[u.email];if(rec){rec.phone=rec.phone||ph;rec.addr=rec.addr||ad;wr("mk-users",U)}
 BI=[];PC=0;$("pc").value="";rb();coDone(o)}
